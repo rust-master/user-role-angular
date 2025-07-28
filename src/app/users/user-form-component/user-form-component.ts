@@ -9,7 +9,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { SharedService, User } from '../../shared.service';
+import { UserService } from '../../shared/user.service';
+import { RoleService } from '../../shared/role.service';
+import { User } from '../../core/models/user.model';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-user-form',
@@ -32,10 +36,12 @@ export class UserForm implements OnInit {
   userForm: FormGroup;
   isEditMode = false;
   roles: string[] = [];
+  private subscription = new Subscription();
 
   constructor(
     private fb: FormBuilder,
-    private sharedService: SharedService,
+    private userService: UserService,
+    private roleService: RoleService,
     private dialogRef: MatDialogRef<UserForm>,
     @Inject(MAT_DIALOG_DATA) public data: User | null
   ) {
@@ -58,7 +64,7 @@ export class UserForm implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sharedService.getRoles().subscribe({
+    this.roleService.getRoles().subscribe({
       next: (roles) => this.roles = roles,
       error: (err) => {
         this.roles = [];
@@ -71,7 +77,7 @@ export class UserForm implements OnInit {
     if (this.userForm.valid) {
       const userData = this.userForm.getRawValue();
       if (this.isEditMode && this.data) {
-        this.sharedService.updateUser(this.data.employeeId, userData).subscribe({
+        this.userService.updateUser(this.data.employeeId, userData).subscribe({
           next: (response) => {
             alert('✅ User updated successfully!');
             this.dialogRef.close({ updated: true });
@@ -82,7 +88,7 @@ export class UserForm implements OnInit {
           }
         });
       } else {
-        this.sharedService.addUser(userData).subscribe({
+        this.userService.addUser(userData).subscribe({
           next: (response) => {
             alert('✅ User added successfully!');
             this.userForm.reset();

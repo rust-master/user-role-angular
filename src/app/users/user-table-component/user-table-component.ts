@@ -6,7 +6,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { SharedService, User } from '../../shared.service';
+import { UserService } from '../../shared/user.service';
+import { User } from '../../core/models/user.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-table',
@@ -35,25 +37,23 @@ export class UserTable implements OnInit {
     'actions'
   ];
 
-  constructor(private sharedService: SharedService, private dialog: MatDialog) {}
+  private subscription = new Subscription();
+  
 
-  ngOnInit(): void {
-    // ✅ Manually trigger loadUsers (important for first-time loading)
-    this.sharedService.loadUsers();
+  constructor(private userService: UserService, private dialog: MatDialog) {}
 
-    // ✅ Subscribe to BehaviorSubject
-    this.sharedService.users$.subscribe({
-      next: (users) => {
-        this.users = users;
-        console.log('Users loaded:', users); // Optional debug log
-      },
-      error: (err) => {
-        this.users = [];
+   ngOnInit(): void {
+    const usersSub = this.userService.users$.subscribe({
+      next: users => this.users = users,
+      error: err => {
         console.error('Failed to load users', err);
+        this.users = [];
       }
     });
-  }
 
+    this.subscription.add(usersSub);
+    this.userService.loadUsers();
+  }
   async openEditModal(user: User): Promise<void> {
     const dialogRef = this.dialog.open(
       // @ts-ignore
@@ -74,7 +74,7 @@ export class UserTable implements OnInit {
   }
 
   onDelete(user: User): void {
-    this.sharedService.deleteUser(user.employeeId).subscribe({
+    this.userService.deleteUser(user.employeeId).subscribe({
       next: () => {
         console.log('User deleted successfully');
         // users$ will auto-update via BehaviorSubject
@@ -85,13 +85,17 @@ export class UserTable implements OnInit {
 
   onToggleStatus(user: User): void {
     const newStatus = user.status === 'Active' ? 'Inactive' : 'Active';
-    this.sharedService.updateUserStatus(user.employeeId, newStatus).subscribe({
+    this.userService.updateUserStatus(user.employeeId, newStatus).subscribe({
       next: () => {
         console.log(`User status updated to ${newStatus}`);
         // users$ will auto-update via BehaviorSubject
       },
       error: (err) => console.error('Failed to update status:', err)
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe(); // cleans up all
   }
 }
 

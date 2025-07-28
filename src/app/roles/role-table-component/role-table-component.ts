@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { SharedService } from '../../shared.service';
+import { RoleService } from '../../shared/role.service';
 import { RoleForm } from '../role-form-component/role-form-component';
 
 @Component({
@@ -15,14 +15,14 @@ export class RoleTable implements OnInit {
   roles: string[] = [];
 
   constructor(
-    private sharedService: SharedService,
+    private roleService: RoleService,
     private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
-    this.sharedService.loadRoles();
+    this.roleService.loadRoles();
     
-    this.sharedService.roles$.subscribe({
+    this.roleService.roles$.subscribe({
       next: (roles) => {
         this.roles = roles;
         console.log('Roles loaded:', roles); // Optional debug log
@@ -35,7 +35,7 @@ export class RoleTable implements OnInit {
   }
 
   fetchRoles() {
-    this.sharedService.getRoles().subscribe({
+    this.roleService.getRoles().subscribe({
       next: (roles) => this.roles = roles,
       error: (err) => {
         console.error('Failed to fetch roles', err);
@@ -53,7 +53,7 @@ export class RoleTable implements OnInit {
 
   onDeleteRole(role: string) {
     if (confirm(`Are you sure you want to delete the role "${role}"?`)) {
-      this.sharedService.deleteRole(role).subscribe({
+      this.roleService.deleteRole(role).subscribe({
         next: () => {
           this.fetchRoles();
         },

@@ -16,14 +16,11 @@ export interface User {
 @Injectable({
   providedIn: 'root'
 })
-export class SharedService {
+export class UserService {
   private baseUrl = 'http://localhost:3000';
 
   private usersSubject = new BehaviorSubject<User[]>([]);
   users$ = this.usersSubject.asObservable();
-
-  private rolesSubject = new BehaviorSubject<string[]>([]);
-  roles$ = this.rolesSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -31,12 +28,6 @@ export class SharedService {
   loadUsers(): void {
     this.http.get<User[]>(`${this.baseUrl}/users`).subscribe(users => {
       this.usersSubject.next(users);
-    });
-  }
-
-  loadRoles(): void {
-    this.http.get<string[]>(`${this.baseUrl}/roles`).subscribe(roles => {
-      this.rolesSubject.next(roles);
     });
   }
 
@@ -48,19 +39,9 @@ export class SharedService {
     return this.http.get<User>(`${this.baseUrl}/users/${employeeId}`);
   }
 
-  getRoles(): Observable<string[]> {
-    return this.http.get<string[]>(`${this.baseUrl}/roles`);
-  }
-
   addUser(user: User): Observable<any> {
     return this.http.post(`${this.baseUrl}/users`, user).pipe(
       tap(() => this.loadUsers()) // Refresh users after add
-    );
-  }
-
-  addRole(role: string): Observable<any> {
-    return this.http.post(`${this.baseUrl}/roles`, { role }).pipe(
-      tap(() => this.loadRoles()) // Refresh users after add
     );
   }
 
@@ -70,14 +51,6 @@ export class SharedService {
       tap(() => this.loadUsers())
     );
   }
-
-  // Delete role by name
-  deleteRole(roleName: string): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/roles/${encodeURIComponent(roleName)}`).pipe(
-      tap(() => this.loadRoles()) // Refresh list after delete
-    );
-  }
-
 
   // ✅ Delete user by ID
   deleteUser(employeeId: string): Observable<any> {

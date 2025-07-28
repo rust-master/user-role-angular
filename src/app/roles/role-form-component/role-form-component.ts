@@ -5,7 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogRef, MatDialogModule } from '@angular/material/dialog';
-import { SharedService } from '../../shared.service';
+import { RoleService } from '../../shared/role.service';
 
 @Component({
   selector: 'app-role-form',
@@ -17,14 +17,14 @@ export class RoleForm {
   newRole: string = '';
 
   constructor(
-    private sharedService: SharedService,
+    private roleService: RoleService,
     private dialogRef: MatDialogRef<RoleForm>
   ) {}
 
   addRole() {
     const role = this.newRole.trim();
     if (!role) return;
-    this.sharedService.addRole(role).subscribe({
+    this.roleService.addRole(role).subscribe({
       next: () => {
         this.newRole = '';
         this.closeDialog({ added: true });

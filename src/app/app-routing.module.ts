@@ -1,7 +1,7 @@
 // app-routing.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { authGuard } from './gaurds/auth-guard';
+import { authGuard } from './core/gaurds/auth.guard';
 
 const routes: Routes = [
   {

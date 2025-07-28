@@ -7,7 +7,7 @@ import { provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { MatNativeDateModule } from '@angular/material/core';
 import { importProvidersFrom } from '@angular/core';
-import { apiInterceptor } from './api-interceptor';
+import { apiInterceptor } from './core/interceptors/api.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
