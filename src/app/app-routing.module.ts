@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   { 
     path: 'roles',
-    loadChildren: () => import('./roles/roles-module').then(m => m.RolesModule),
+    loadChildren: () => import('./shared/roles/roles-module').then(m => m.RolesModule),
     canActivate: [authGuard]
   },
 ];

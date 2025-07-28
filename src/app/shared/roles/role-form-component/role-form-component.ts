@@ -5,7 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogRef, MatDialogModule } from '@angular/material/dialog';
-import { RoleService } from '../../shared/role.service';
+import { RoleService } from '../../services/role.service';
 
 @Component({
   selector: 'app-role-form',

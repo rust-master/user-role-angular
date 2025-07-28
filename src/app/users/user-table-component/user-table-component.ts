@@ -6,8 +6,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { UserService } from '../../shared/user.service';
-import { User } from '../../core/models/user.model';
+import { UserService } from '../../shared/services/user.service';
+import { User } from '../../shared/models/user.model';
 import { Subscription } from 'rxjs';
 
 @Component({

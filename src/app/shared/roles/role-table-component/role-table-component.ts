@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { RoleService } from '../../shared/role.service';
+import { RoleService } from '../../services/role.service';
 import { RoleForm } from '../role-form-component/role-form-component';
 
 @Component({
