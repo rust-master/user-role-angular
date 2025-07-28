@@ -1,0 +1,24 @@
+/* Main container */
+.role-app {
+    max-width: 1400px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+
+    /* Heading */
+  .heading {
+    margin-left: 115px;
+    font-size: 1.5rem;
+    color: #006aff;
+  }
+  
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px; /* optional spacing */
+}
+  

@@ -1,0 +1,51 @@
+.role-form-dialog {
+  width: 100%;
+  min-width: 350px;
+  max-width: 520px;
+  min-height: 200px;
+  padding: 32px 24px 24px 24px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.dialog-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.close-btn {
+  margin-left: 8px;
+}
+
+.role-form-content,
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.role-input,
+.full-width {
+  width: 100%;
+}
+
+.add-btn {
+  align-self: flex-end;
+  min-width: 100px;
+}
+
+.form-role{
+  margin-top: 10px;
+}
