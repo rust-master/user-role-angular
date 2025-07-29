@@ -13,7 +13,7 @@ import { UserService } from '../../shared/services/user.service';
 import { RoleService } from '../../shared/services/role.service';
 import { User } from '../../shared/models/user.model';
 import { Subscription } from 'rxjs';
-
+import { noSpaceValidator } from '../../shared/util/util';
 
 @Component({
   selector: 'app-user-form',
@@ -32,6 +32,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './user-form-component.html',
   styleUrls: ['./user-form-component.scss']
 })
+
 export class UserForm implements OnInit {
   userForm: FormGroup;
   isEditMode = false;
@@ -46,13 +47,12 @@ export class UserForm implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: User | null
   ) {
     this.userForm = this.fb.group({
-      employeeId: ['', Validators.required],
+      employeeId: ['', [Validators.required, noSpaceValidator]],
       fullName: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
       role: ['', Validators.required],
-      pinCode: ['', Validators.required],
+      pinCode: ['', [Validators.required, noSpaceValidator]],
       status: ['', Validators.required],
-      createdAt: ['', Validators.required]
     });
 
     if (data) {

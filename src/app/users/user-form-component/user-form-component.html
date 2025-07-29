@@ -9,6 +9,9 @@
       <mat-error *ngIf="userForm.get('employeeId')?.hasError('required')">
         Employee ID is required
       </mat-error>
+      <mat-error *ngIf="userForm.get('employeeId')?.hasError('noSpace')">
+        {{ userForm.get('employeeId')?.getError('noSpace') }}
+      </mat-error>
     </mat-form-field>
 
     <!-- Full Name -->
@@ -53,6 +56,9 @@
       <mat-error *ngIf="userForm.get('pinCode')?.hasError('required')">
         Pin Code is required
       </mat-error>
+      <mat-error *ngIf="userForm.get('pinCode')?.hasError('noSpace')">
+        {{ userForm.get('pinCode')?.getError('noSpace') }}
+      </mat-error>
     </mat-form-field>
 
     <!-- Status -->
@@ -64,17 +70,6 @@
       </mat-select>
       <mat-error *ngIf="userForm.get('status')?.hasError('required')">
         Status is required
-      </mat-error>
-    </mat-form-field>
-
-    <!-- Created At -->
-    <mat-form-field appearance="outline" class="full-width form-emp">
-      <mat-label>Created At</mat-label>
-      <input matInput [matDatepicker]="createdAtPicker" formControlName="createdAt" placeholder="Choose a date">
-      <mat-datepicker-toggle matSuffix [for]="createdAtPicker"></mat-datepicker-toggle>
-      <mat-datepicker #createdAtPicker></mat-datepicker>
-      <mat-error *ngIf="userForm.get('createdAt')?.hasError('required')">
-        Created At is required
       </mat-error>
     </mat-form-field>
 

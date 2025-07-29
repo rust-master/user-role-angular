@@ -11,7 +11,7 @@ const routes: Routes = [
   { 
     path: 'roles',
     loadChildren: () => import('./shared/roles/roles-module').then(m => m.RolesModule),
-    canActivate: [authGuard]
+    // canActivate: [authGuard]
   },
 ];
 
