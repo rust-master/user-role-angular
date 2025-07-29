@@ -19,7 +19,7 @@ export class RolesComponent {
   ) {}
 
   openAddRoleDialog() {
-    const dialogRef = this.dialog.open(RoleForm, {
+    this.dialog.open(RoleForm, {
       width: '520px', // Match user form dialog width
       maxWidth: '95vw'
     });
