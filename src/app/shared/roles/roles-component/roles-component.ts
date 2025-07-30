@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { RoleTable } from "../role-table-component/role-table-component";
 import { MatDialog } from '@angular/material/dialog';
 import { RoleForm } from '../role-form-component/role-form-component';
@@ -14,9 +15,20 @@ import { MatButtonModule } from '@angular/material/button';
 export class RolesComponent {
   roles: string[] = [];
 
- constructor(
-    private dialog: MatDialog
-  ) {}
+  constructor(
+    private dialog: MatDialog,
+    private route: ActivatedRoute
+  ) {
+    const resolved = this.route.snapshot.data['roles'];
+    console.log("🚀 ~ RolesComponent ~ constructor ~ resolved:", resolved);
+    if (resolved) {
+      if (typeof resolved.subscribe === 'function') {
+        resolved.subscribe((roles: string[]) => this.roles = roles);
+      } else {
+        this.roles = resolved;
+      }
+    }
+  }
 
   openAddRoleDialog() {
     this.dialog.open(RoleForm, {

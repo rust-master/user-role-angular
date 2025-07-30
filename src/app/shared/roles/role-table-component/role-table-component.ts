@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Input } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
@@ -14,7 +14,7 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class RoleTable implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
-  roles: string[] = [];
+  @Input()roles: string[] = [];
 
   constructor(
     private roleService: RoleService,
@@ -22,20 +22,22 @@ export class RoleTable implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.roleService.loadRoles();
+    if (!this.roles || this.roles.length === 0) {
+      this.roleService.loadRoles();
 
-    this.roleService.roles$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe({
-        next: (roles) => {
-          this.roles = roles;
-          console.log('Roles loaded:', roles);
-        },
-        error: (err) => {
-          this.roles = [];
-          console.error('Failed to load roles', err);
-        }
-      });
+      this.roleService.roles$
+        .pipe(takeUntil(this.destroy$))
+        .subscribe({
+          next: (roles) => {
+            this.roles = roles;
+            console.log('Roles loaded:', roles);
+          },
+          error: (err) => {
+            this.roles = [];
+            console.error('Failed to load roles', err);
+          }
+        });
+    }
   }
 
   fetchRoles() {
