@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
 import { Observable } from 'rxjs';
-import { User } from '../shared/models/user.model';
-import { UserService } from '../shared/services/user.service';
+import { User } from '../../shared/models/user.model';
+import { UserService } from '../../shared/services/user.service';
 
 @Injectable({
   providedIn: 'root'

@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { UserListResolver } from './user-list.resolver';
+import { UserListResolver } from '../core/resolvers/user-list.resolver';
 
 const routes: Routes = [
   { path: '', component: UsersComponent, resolve: { users: UserListResolver } }
