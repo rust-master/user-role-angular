@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
@@ -25,7 +25,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./user-table-component.scss']
 })
 export class UserTable implements OnInit {
-  users: User[] = [];
+  @Input() users: User[] = [];
   displayedColumns: string[] = [
     'employee-id',
     'full-name',
@@ -43,16 +43,18 @@ export class UserTable implements OnInit {
   constructor(private userService: UserService, private dialog: MatDialog) {}
 
    ngOnInit(): void {
-    const usersSub = this.userService.users$.subscribe({
-      next: users => this.users = users,
-      error: err => {
-        console.error('Failed to load users', err);
-        this.users = [];
-      }
-    });
+    if (!this.users || this.users.length === 0) {
+      const usersSub = this.userService.users$.subscribe({
+        next: users => this.users = users,
+        error: err => {
+          console.error('Failed to load users', err);
+          this.users = [];
+        }
+      });
 
-    this.subscription.add(usersSub);
-    this.userService.loadUsers();
+      this.subscription.add(usersSub);
+      this.userService.loadUsers();
+    }
   }
   async openEditModal(user: User): Promise<void> {
     const dialogRef = this.dialog.open(
@@ -104,4 +106,4 @@ export class UserTable implements OnInit {
 // unsub apis
 // naming convention - compo
 // app module
-// 
+//

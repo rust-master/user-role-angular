@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { User } from '../../shared/models/user.model';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -16,8 +18,20 @@ import { UserTable } from '../user-table-component/user-table-component';
   styleUrls: ['./users-component.scss']
 })
 export class UsersComponent {
+  users: User[] = [];
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private route: ActivatedRoute) {
+    const resolved = this.route.snapshot.data['users'];
+    console.log("🚀 ~ UsersComponent ~ constructor ~ resolved:", resolved);
+    if (resolved) {
+      // If resolver returns an observable, subscribe; if array, assign directly
+      if (typeof resolved.subscribe === 'function') {
+        resolved.subscribe((users: User[]) => this.users = users);
+      } else {
+        this.users = resolved;
+      }
+    }
+  }
 
    openDialog(): void {
     const dialogRef = this.dialog.open(UserForm, {
