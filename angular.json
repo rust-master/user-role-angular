@@ -5,6 +5,12 @@
   "projects": {
     "user-role": {
       "projectType": "application",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "ur": "src/locale/messages.ur.xlf"
+        }
+      },
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
@@ -19,7 +25,8 @@
           "options": {
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -49,6 +56,16 @@
               ],
               "outputHashing": "all"
             },
+            "en": {
+              "localize": ["en-US"],
+              "outputPath": "dist/user-role/en",
+              "baseHref": "/en/"
+            },
+            "ur": {
+              "localize": ["ur"],
+              "outputPath": "dist/user-role/ur",
+              "baseHref": "/ur/"
+            },
             "development": {
               "optimization": false,
               "extractLicenses": false,
@@ -65,6 +82,12 @@
             },
             "development": {
               "buildTarget": "user-role:build:development"
+            },
+            "en": {
+              "buildTarget": "user-role:build:en"
+            },
+            "ur": {
+              "buildTarget": "user-role:build:ur"
             }
           },
           "defaultConfiguration": "development"
@@ -77,7 +100,8 @@
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",

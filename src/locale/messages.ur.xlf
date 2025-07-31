@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" target-language="ur" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="switchToEnglish" datatype="html">
+        <source>English</source>
+        <target> انگریزی</target>
+      </trans-unit>
+      <trans-unit id="switchToUrdu" datatype="html">
+        <source>اردو</source>
+        <target>اردو</target>
+      </trans-unit>
+      <trans-unit id="8269661465692738843" datatype="html">
+        <source> Employee ID </source>
+        <target>ملازم شناختی نمبر</target>
+      </trans-unit>
+      <trans-unit id="8247162011376540040" datatype="html">
+        <source> Full Name </source>
+        <target>مکمل نام</target>
+      </trans-unit>
+      <trans-unit id="7817163188308824825" datatype="html">
+        <source> Email </source>
+        <target>ای میل</target>
+      </trans-unit>
+      <trans-unit id="2803298218425845065" datatype="html">
+        <source> Role </source>
+        <target>کردار</target>
+      </trans-unit>
+      <trans-unit id="1872065498652049294" datatype="html">
+        <source> Pin Code </source>
+        <target>پن کوڈ</target>
+      </trans-unit>
+      <trans-unit id="4282587102956396340" datatype="html">
+        <source> Status </source>
+        <target>حیثیت</target>
+      </trans-unit>
+      <trans-unit id="toggleUserStatus" datatype="html">
+        <source>Toggle user status</source>
+        <target>صارف کی حیثیت تبدیل کریں</target>
+      </trans-unit>
+      <trans-unit id="6783769952742707282" datatype="html">
+        <source> Created At </source>
+        <target>تخلیق کی تاریخ</target>
+      </trans-unit>
+      <trans-unit id="4360239040231802726" datatype="html">
+        <source> Actions </source>
+        <target>عمل</target>
+      </trans-unit>
+      <trans-unit id="editUser" datatype="html">
+        <source>Edit User</source>
+        <target>صارف میں ترمیم کریں</target>
+      </trans-unit>
+      <trans-unit id="deleteUser" datatype="html">
+        <source>Delete User</source>
+        <target>صارف کو حذف کریں</target>
+      </trans-unit>
+      <trans-unit id="4555457172864212828" datatype="html">
+        <source>Users</source>
+        <target>صارفین</target>
+      </trans-unit>
+      <trans-unit id="2941198503117307737" datatype="html">
+        <source>Add User</source>
+        <target>صارف شامل کریں</target>
+      </trans-unit>
+      <trans-unit id="795890916060309463" datatype="html">
+        <source>Roles</source>
+        <target>کردار</target>
+      </trans-unit>
+      <trans-unit id="1488370600689490907" datatype="html">
+        <source>Add Role</source>
+        <target>کردار شامل کریں</target>
+      </trans-unit>
+      <trans-unit id="deleteRole" datatype="html">
+        <source>Delete Role</source>
+        <target>کردار حذف کریں</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

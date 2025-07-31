@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="switchToEnglish" datatype="html">
+        <source>English </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">7,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="switchToUrdu" datatype="html">
+        <source>اردو</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">9,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2803298218425845065" datatype="html">
+        <source> Role </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/roles/role-table-component/role-table-component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/user-table-component/user-table-component.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4360239040231802726" datatype="html">
+        <source> Actions </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/roles/role-table-component/role-table-component.html</context>
+          <context context-type="linenumber">7,8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/user-table-component/user-table-component.html</context>
+          <context context-type="linenumber">52,53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="deleteRole" datatype="html">
+        <source>Delete Role</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/roles/role-table-component/role-table-component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="795890916060309463" datatype="html">
+        <source>Roles</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/roles/roles-component/roles-component.html</context>
+          <context context-type="linenumber">1,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1488370600689490907" datatype="html">
+        <source>Add Role</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/roles/roles-component/roles-component.html</context>
+          <context context-type="linenumber">7,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8269661465692738843" datatype="html">
+        <source> Employee ID </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/user-table-component/user-table-component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8247162011376540040" datatype="html">
+        <source> Full Name </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/user-table-component/user-table-component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7817163188308824825" datatype="html">
+        <source> Email </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/user-table-component/user-table-component.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1872065498652049294" datatype="html">
+        <source> Pin Code </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/user-table-component/user-table-component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4282587102956396340" datatype="html">
+        <source> Status </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/user-table-component/user-table-component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="toggleUserStatus" datatype="html">
+        <source>Toggle user status</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/user-table-component/user-table-component.html</context>
+          <context context-type="linenumber">37,38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6783769952742707282" datatype="html">
+        <source> Created At </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/user-table-component/user-table-component.html</context>
+          <context context-type="linenumber">44,45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editUser" datatype="html">
+        <source>Edit User</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/user-table-component/user-table-component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="deleteUser" datatype="html">
+        <source>Delete User</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/user-table-component/user-table-component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4555457172864212828" datatype="html">
+        <source>Users</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/users-component/users-component.html</context>
+          <context context-type="linenumber">1,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2941198503117307737" datatype="html">
+        <source>Add User</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/users-component/users-component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

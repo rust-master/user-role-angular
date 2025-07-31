@@ -1,33 +1,33 @@
 <table mat-table [dataSource]="users" class="mat-elevation-z8 demo-table">
   <ng-container matColumnDef="employee-id">
-    <th mat-header-cell *matHeaderCellDef> Employee ID </th>
+    <th mat-header-cell *matHeaderCellDef i18n> Employee ID </th>
     <td mat-cell *matCellDef="let user"> {{user.employeeId}} </td>
   </ng-container>
 
   <ng-container matColumnDef="full-name">
-    <th mat-header-cell *matHeaderCellDef> Full Name </th>
+    <th mat-header-cell *matHeaderCellDef i18n> Full Name </th>
     <td mat-cell *matCellDef="let user"> {{user.fullName}} </td>
   </ng-container>
 
   <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <th mat-header-cell *matHeaderCellDef i18n> Email </th>
     <td mat-cell *matCellDef="let user"> {{user.email}} </td>
   </ng-container>
 
   <ng-container matColumnDef="role">
-    <th mat-header-cell *matHeaderCellDef> Role </th>
+    <th mat-header-cell *matHeaderCellDef i18n> Role </th>
     <td mat-cell *matCellDef="let user"> {{user.role}} </td>
   </ng-container>
 
   <ng-container matColumnDef="pin-code">
-    <th mat-header-cell *matHeaderCellDef> Pin Code </th>
+    <th mat-header-cell *matHeaderCellDef i18n> Pin Code </th>
     <td mat-cell *matCellDef="let user">
       <span class="pin-pill">{{user.pinCode}}</span>
     </td>
   </ng-container>
 
   <ng-container matColumnDef="status">
-    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <th mat-header-cell *matHeaderCellDef i18n> Status </th>
     <td mat-cell *matCellDef="let user">
       <mat-slide-toggle
         [checked]="user.status === 'Active'"
@@ -35,12 +35,13 @@
         color="primary"
         class="status-toggle"
         aria-label="Toggle user status"
+        i18n-aria-label="@@toggleUserStatus"
       ></mat-slide-toggle>
     </td>
   </ng-container>
 
   <ng-container matColumnDef="created-at">
-    <th mat-header-cell *matHeaderCellDef> Created At </th>
+    <th mat-header-cell *matHeaderCellDef i18n> Created At </th>
     <td mat-cell *matCellDef="let user">
       {{ user.createdAt | date: 'medium' }}
     </td>
@@ -48,13 +49,13 @@
 
 
   <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <th mat-header-cell *matHeaderCellDef i18n> Actions </th>
     <td mat-cell *matCellDef="let user">
       <div class="action-buttons">
-        <button mat-icon-button color="primary" (click)="openEditModal(user)" aria-label="Edit User">
+        <button mat-icon-button color="primary" (click)="openEditModal(user)" aria-label="Edit User" i18n-aria-label="@@editUser">
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-icon-button color="warn" (click)="onDelete(user)" aria-label="Delete User">
+        <button mat-icon-button color="warn" (click)="onDelete(user)" aria-label="Delete User" i18n-aria-label="@@deleteUser">
           <mat-icon>delete</mat-icon>
         </button>
       </div>
