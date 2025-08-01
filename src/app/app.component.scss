@@ -58,3 +58,59 @@
   background-color: #f9fafb;
   min-height: calc(100vh - 64px);
 }
+
+/* Language Switcher Styles */
+.lang-switcher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  margin: 1.5rem 0 2.5rem 0;
+}
+
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.8rem;
+  border-radius: 2rem;
+  background: linear-gradient(90deg, #e3eafe 60%, #f0f4ff 100%);
+  color: #2a3142;
+  font-size: 1.08rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  box-shadow: 0 2px 12px rgba(80, 120, 255, 0.07);
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+  outline: none;
+  margin: 0;
+}
+
+.lang-btn:hover,
+.lang-btn:focus {
+  background: linear-gradient(90deg, #c7d2fe 60%, #e0e7ff 100%);
+  color: #1a237e;
+  box-shadow: 0 4px 18px rgba(80, 120, 255, 0.13);
+  text-decoration: none;
+}
+
+.lang-btn:focus {
+  box-shadow: 0 0 0 2px #90caf9;
+}
+
+.lang-btn:last-child {
+  font-family: "Noto Nastaliq Urdu", "Noto Sans Arabic", "Arial", sans-serif;
+  direction: rtl;
+}
+
+@media (max-width: 600px) {
+  .lang-switcher {
+    gap: 1rem;
+    margin: 1rem 0 1.5rem 0;
+  }
+  .lang-btn {
+    font-size: 0.98rem;
+    padding: 0.4rem 1.1rem;
+  }
+}

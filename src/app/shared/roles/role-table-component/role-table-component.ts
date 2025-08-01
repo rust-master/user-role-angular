@@ -5,10 +5,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { RoleService } from '../../services/role.service';
 import { RoleForm } from '../role-form-component/role-form-component';
 import { Subject, takeUntil } from 'rxjs';
+import {CdkDrag} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-role-table',
-  imports: [MatTableModule, MatDialogModule, MatIconModule],
+  imports: [MatTableModule, MatDialogModule, MatIconModule, CdkDrag],
   templateUrl: './role-table-component.html',
   styleUrl: './role-table-component.scss'
 })
